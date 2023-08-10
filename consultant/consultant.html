@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블랙컨슈머</title>
+    <link rel="stylesheet" href="./consultant.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="flex meta_list">
+        <article class="flex meta">
+          <span class="name">TODAY</span>
+          <span class="con">2023-07-25</span>
+        </article>
+        <article class="flex meta">
+          <span class="name">총 상담 건 수</span>
+          <span class="con">
+            <span class="bold" style="color: #3577F6;">81</span>명</span>
+        </article>
+        <article class="flex meta">
+          <span class="name">총 블랙 컨슈머 건 수</span>
+          <span class="con">
+            <span class="bold">124</span>명</span>
+        </article>
+      </div>
+
+      <div class="flex main">
+        <ul class="consultant_list">
+          <div class="gauge_wrap"><div style="width: 10px;" class="gauge"></div></div>
+        </ul>
+        <div class="question">
+          <h3>위험지수란?</h3>
+          <ul class="q_list">
+            <li class="q">
+              <div class="flex">
+                <img src="../img/level_0.jpg" alt="">
+                <div class="q_text">
+                  <span class="bold">0단계 : 이상없음</span>
+                  <p class="desc">블랙컨슈머 5회 응대 시 1단계</p>
+                </div>
+              </div>
+            </i>
+            <li class="q">
+              <div class="flex">
+                <img src="../img/level_1.jpg" alt="">
+                <div class="q_text">
+                  <span class="bold">1단계 : 주의요망</span>
+                  <p class="desc">블랙컨슈머 10회 응대 시 2단계</p>
+                  <p class="warn"> <span>&#183;</span> 내부 교육 진행</p>
+                </div>
+              </div>
+            </li>
+            <li class="q">
+              <div class="flex">
+                <img src="../img/level_2.jpg" alt="">
+                <div class="q_text">
+                  <span class="bold">2단계 : 주의요망</span>
+                  <p class="desc">블랙컨슈머 40회 응대 시 3단계</p>
+                  <p class="warn"> <span>&#183;</span> 휴게시간 부여</p>
+                  <span></span>
+                </div>
+              </div>
+            </li>
+            <li class="q">
+              <div class="flex">
+                <img src="../img/level_3.jpg" alt="">
+                <div class="q_text">
+                  <span class="bold">3단계 : 위험</span>
+                  <p class="desc">블랙컨슈머 80회 응대 시 4단계</p>
+                  <p class="warn"> <span>&#183;</span> 클리닉바우처 제공</p>
+                  <span></span>
+                </div>
+              </div>
+            </li>
+            <li class="q">
+              <div class="flex">
+                <img src="../img/level_4.jpg" alt="">
+                <div class="q_text">
+                  <span class="bold">4단계 : 심각</span>
+                  <!-- <p class="desc">블랙컨슈머 5회 응대 시 1단계</p> -->
+                  <p class="warn"> <span>&#183;</span> 특별 휴가</p>
+                  <span></span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="./consultant.js"></script>
+  </body>
+</html>

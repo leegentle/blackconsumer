@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블랙컨슈머</title>
+    <link rel="stylesheet" href="./statistics.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  </head>
+  <body>
+    <div class="wrap">
+      <section id="meta_list" class="flex meta_list">
+        <article class="flex meta">
+          <span class="name">TODAY</span>
+          <span class="con">2023-07-25</span>
+        </article>
+        <article class="flex meta">
+          <span class="con bold">
+            상담사1</span>
+        </article>
+        <article class="flex meta">
+          <span class="name">총 상담 건 수</span>
+          <span class="con">
+            <span class="bold" style="color: #3577F6;">81</span>명</span>
+        </article>
+        <article class="flex meta">
+          <span class="name">총 블랙 컨슈머 건 수</span>
+          <span class="con">
+            <span class="bold">124</span>명</span>
+        </article>
+      </section>
+
+      <section id="graph">
+        <div class="flex">
+          <button>월별</button>
+          <button>주별</button>
+          <div class="flex">
+            <button>이전</button>
+            <span>날짜</span>
+            <button>다음</button>
+          </div>
+        </div>
+        <div class="flex jb">
+          <canvas id="myChart"></canvas>
+          <div class="desc">
+            <p><span>위험지수</span>:<span>3단계</span></p>
+            <p><span>위험지수</span>:<span>3단계</span></p>
+            <p><span>위험지수</span>:<span>3단계</span></p>
+            <p><span>위험지수</span>:<span>3단계</span></p>
+            <hr></hr>
+            <p><span>위험지수</span>:<span>3단계</span></p>
+            <p><span>위험지수</span>:<span>3단계</span></p>
+            <p><span>위험지수</span>:<span>3단계</span></p>
+            <p><span>위험지수</span>:<span>3단계</span></p>
+        </div>
+      </div>
+      <div class="flex color_list">
+        <div class="flex">
+          <div style="background-color: black;" class="color"></div>
+          <span>상담수</span>
+        </div>
+      </div>
+      </section>
+      <siction id="hitMap">
+        <div class="title">
+          요일/시간 별 블랙컨슈머 빈도
+        </div>
+        <br />
+        <img src="../img/aiunited.jpg" alt="">
+      </siction>
+      <section><div class="time_list"></div></section>
+    </div>
+    <script src="./statistics.js"></script>
+  </body>
+</html>

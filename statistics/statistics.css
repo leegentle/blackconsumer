@@ -1,112 +1,124 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-ul,li{
-    list-style: none;
-}
-
-a{
-    text-decoration: none;
-    color: inherit;
+ul,li {
+  list-style: none;
 }
 
-.wrap{
-    max-width: 1024px;
-    margin: 0 auto;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.flex{
-    display: flex;
-    align-items: center;
+button{
+	border: none;
+	cursor: pointer;
 }
 
-.main{
-    justify-content: center;
-    align-items: flex-start;
+.wrap {
+  max-width: 1024px;
+  margin: 0 auto;
 }
-.jb{
-    justify-content: space-between;
+
+.flex {
+  display: flex;
+  align-items: center;
 }
-.bold{
-    font-weight: 800;
+
+.jb {
+  justify-content: space-between;
+}
+
+.ais {
+	align-items: flex-start;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.meta_list {
+  justify-content: space-between;
+  margin: 40px 0;
+}
+
+.meta {
+  padding: 16px 30px;
+  border:1px solid #DFDFDF;
+  border-radius: 8px;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.meta .name {
+  font-size: 14px;
+}
+.meta .con {
+  font-size: 24px;
+}
+
+#myChart {
+  width: 750px !important; 
+  height: 375px !important; 
+  box-shadow: 0 25px 36px rgba(0, 0, 0, 0.1) ;
+  border-radius: 8px;
+  padding: 16px;
+
+}
+
+.desc {
+  width: 250px;
+  padding:20px 50px;
+  background-color: #3577F6;
+  border-radius: 20px;
+  color: white;
+}
+
+.desc p  {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+#graph {
+  margin-bottom: 30px;
+}
+
+.color_list {
+  margin-top: 8px;
+}
+.color_list .flex {
+  margin-right: 20px;
+}
+.color_list .color {
+  width: 30px;
+  height: 18px;
+  border-radius: 100px;
+  margin-right: 8px;
 }
 
 
-.meta_list{
-    justify-content: space-between;
-    margin: 40px 0;
-}
-.meta{
-    padding: 16px 30px;
-    border:1px solid #DFDFDF;
-    border-radius: 8px;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.meta .name{
-    font-size: 14px;
-}
-.meta .con{
-    font-size: 24px;
-}
-
-#myChart{
-    width: 750px !important; 
-    height: 375px !important; 
-    box-shadow: 0 25px 36px rgba(0, 0, 0, 0.1) ;
-    border-radius: 8px;
-    padding: 16px;
-
-}
-
-.desc{
-    width: 250px;
-    padding:20px 50px;
-    background-color: #3577F6;
-    border-radius: 20px;
-    color: white;
-}
-
-.desc p {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-}
-
-#graph{
-    margin-bottom: 30px;
-}
-
-.color_list{
-    margin-top: 8px;
-}
-.color_list .flex{
-    margin-right: 20px;
-}
-.color_list .color{
-    width: 30px;
-    height: 18px;
-    border-radius: 100px;
-    margin-right: 8px;
+.title {
+  display: inline-block;
+  padding: 10px 24px;
+  color: white;
+  border-radius: 8px;
+  background-color: #3577f6;
 }
 
 
-#hitMap .title{
-    display: inline-block;
-    padding: 10px 24px;
-    color: white;
-    border-radius: 8px;
-    background-color: #3577f6;
+#timeSection{
+	flex: 1;
+	margin-left: 64px;
 }
-.gauge_wrap{
-    background-color: #E4EAF0;
-    height: 12px;
-    border-radius: 6px;
+.gauge_wrap {
+  background-color: #E4EAF0;
+  height: 12px;
+  border-radius: 6px;
 }
-.gauge_wrap .gauge{
-    height: 100%;
-    border-radius: 6px;
+.gauge_wrap .gauge {
+  height: 100%;
+  border-radius: 6px;
 }

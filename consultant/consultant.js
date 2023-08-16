@@ -1,7 +1,7 @@
 const $consultant_list = document.querySelector(".consultant_list");
 
 const MAX = 100;
-const DATA = [4, 44, 21, 84, 62, 16, 31, 8, 16, 74];
+const DATA = [4, 44, 21, 84, 62, 16];
 
 const color = (stat) => {
   if (stat <= 4) return "#04E762";

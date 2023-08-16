@@ -26,12 +26,24 @@ const DATA = [
     text: "불만족",
   },
 ];
-const COLOR = (stat) => {
+const TIME_DATA = [
+  { title: "총상담", time: 4 },
+  { title: "중립", time: 44 },
+  { title: "분노1", time: 21 },
+  { title: "분노2", time: 84 },
+  { title: "분노3", time: 62 },
+];
+
+const color = (stat) => {
   if (stat <= 20) return "#04E762";
   if (stat <= 40) return "#34D1BF";
   if (stat <= 60) return "#0496FF";
   if (stat <= 80) return "#6665DD";
   return "#DE0D92";
+};
+const percent = (stat) => {
+  const percent = (stat / 100) * 100;
+  return percent > 100 ? 100 : percent;
 };
 
 const $color_list = document.querySelector(".color_list");
@@ -93,23 +105,24 @@ const labelRender = () => {
 
 const render = () => {
   $time_list.innerHTML = `
-      ${DATA.map(
-        (item, idx) => `
+      ${TIME_DATA.map((item, idx) => {
+        const time = percent(item.time);
+        return `
         <li>
-          <a href="">
-            <div class="flex jb">
-              <p>
-                상담사${idx + 1}
-              </p>
-              <span>
-                단계
-              </span>
-            </div>
-            <div class="gauge_wrap"><div style="width: 10%; background-color:white;" class="gauge"></div></div>
-          </a>
+          <div class="flex jb">
+            <p>
+              ${item.title}
+            </p>
+            <span>
+              ${time}분
+            </span>
+          </div>
+          <div class="gauge_wrap"><div style="width: ${time}%; background-color:${color(
+          time
+        )};" class="gauge"></div></div>
         </li>
-        `
-      ).join("")}
+        `;
+      }).join("")}
   `;
 };
 

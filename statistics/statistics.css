@@ -60,9 +60,13 @@ button{
   font-size: 24px;
 }
 
+.chart{
+  flex: 1;
+}
+
 #myChart {
-  width: 750px !important; 
-  height: 375px !important; 
+  /* width: 750px !important; 
+  height: 375px !important;  */
   box-shadow: 0 25px 36px rgba(0, 0, 0, 0.1) ;
   border-radius: 8px;
   padding: 16px;
@@ -75,6 +79,7 @@ button{
   background-color: #3577F6;
   border-radius: 20px;
   color: white;
+  margin-left: 12px;
 }
 
 .desc p  {
@@ -113,6 +118,10 @@ button{
   color: white;
   border-radius: 8px;
   background-color: #3577f6;
+}
+
+.off{
+  background-color: #DFDFDF;
 }
 
 .week {

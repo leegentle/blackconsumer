@@ -79,16 +79,22 @@ button{
 
 .desc p  {
   display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
+  justify-content: flex-start;
+  margin: 18px 0;
+}
+.desc p span:first-child {
+  width: 80px;
+}
+.desc p .bold {
+  margin-left: 10px;
 }
 
 #graph {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .color_list {
-  margin-top: 8px;
+  margin-top: 16px;
 }
 .color_list .flex {
   margin-right: 20px;
@@ -131,4 +137,21 @@ button{
 .gauge_wrap .gauge {
   height: 100%;
   border-radius: 6px;
+}
+
+.time_list{
+  margin-top: 8px;
+  padding: 23px 48px;
+  box-shadow: 0 25px 36px rgba(0, 0, 0, 0.1) ;
+  border-radius: 20px;
+}
+.time_list li{
+  margin-bottom: 16px;
+}
+.time_list span{
+  color:#3577F6
+}
+
+.gauge_wrap{
+  margin-top: 8px;
 }

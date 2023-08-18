@@ -1,7 +1,58 @@
 const $consultant_list = document.querySelector(".consultant_list");
 
 const MAX = 100;
-const DATA = [4, 44, 21, 84, 62, 16];
+const DATA = [
+  {
+    level: 2,
+    color: "#0496FF",
+    percent: 77.5,
+  },
+  {
+    level: 3,
+    color: "#6665DD",
+    percent: 56.25,
+  },
+  {
+    level: 0,
+    color: "#04E762",
+    percent: 40,
+  },
+  {
+    level: 3,
+    color: "#6665DD",
+    percent: 15,
+  },
+  {
+    level: 1,
+    color: "#34D1BF",
+    percent: 35,
+  },
+  {
+    level: 0,
+    color: "#04E762",
+    percent: 80,
+  },
+  {
+    level: 0,
+    color: "#04E762",
+    percent: 75,
+  },
+  {
+    level: 1,
+    color: "#34D1BF",
+    percent: 55,
+  },
+  {
+    level: 0,
+    color: "#04E762",
+    percent: 35,
+  },
+  {
+    level: 2,
+    color: "#0496FF",
+    percent: 25,
+  },
+];
 
 const color = (stat) => {
   if (stat <= 4) return "#04E762";
@@ -28,18 +79,18 @@ const render = () => {
       ${DATA.map(
         (item, idx) => `
         <li>
-          <a href="">
+          <a href="../statistics/statistics.html?idx=${idx + 1}">
             <div class="flex jb">
               <p>
                 상담사${idx + 1}
               </p>
               <span>
-                ${level(item)}단계
+                ${item.level}단계
               </span>
             </div>
-            <div class="gauge_wrap"><div style="width: ${percent(
-              item
-            )}%; background-color:${color(item)};" class="gauge"></div></div>
+            <div class="gauge_wrap"><div style="width: ${
+              item.percent
+            }%; background-color:${item.color};" class="gauge"></div></div>
           </a>
         </li>
         `

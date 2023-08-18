@@ -1,5 +1,9 @@
 const arr = (num) => Array.from(Array(num)).map((el, idx) => idx + 1);
 let data = arr(30);
+const idx = window.location.search.split("=")[1];
+const $idx = document.querySelector(".idx");
+const $color_list = document.querySelector(".color_list");
+const $time_list = document.querySelector(".time_list");
 const DATA = [
   {
     color: "#4F6BFF",
@@ -46,8 +50,7 @@ const percent = (stat) => {
   return percent > 100 ? 100 : percent;
 };
 
-const $color_list = document.querySelector(".color_list");
-const $time_list = document.querySelector(".time_list");
+$idx.innerHTML = idx;
 
 // 그래프 생성
 const ctx = document.getElementById("myChart").getContext("2d");
@@ -62,6 +65,7 @@ const drawGraph = () => {
           data: data,
           fill: false,
           borderColor: "#3577F6",
+          pointBorderWidth: 3,
           tension: 0.1,
         },
         {
@@ -69,6 +73,7 @@ const drawGraph = () => {
           data: data.map((el) => el * 2),
           fill: false,
           borderColor: "#FFA755",
+          pointBorderWidth: 3,
           tension: 0.1,
         },
         {
@@ -76,6 +81,7 @@ const drawGraph = () => {
           data: data.map((el) => el * 3),
           fill: false,
           borderColor: "#9E9E9E",
+          pointBorderWidth: 3,
           tension: 0.1,
         },
         {
@@ -83,6 +89,7 @@ const drawGraph = () => {
           data: data.map((el) => el * 2.5),
           fill: false,
           borderColor: "#FFFB8C",
+          pointBorderWidth: 3,
           tension: 0.1,
         },
         {
@@ -90,6 +97,7 @@ const drawGraph = () => {
           data: data.map((el) => el * 5),
           fill: false,
           borderColor: "#89FFBF",
+          pointBorderWidth: 3,
           tension: 0.1,
         },
         {
@@ -97,6 +105,7 @@ const drawGraph = () => {
           data: data.map((el) => el * 3.5),
           fill: false,
           borderColor: "#D36FEF",
+          pointBorderWidth: 3,
           tension: 0.1,
         },
       ],
@@ -116,7 +125,7 @@ const drawGraph = () => {
         y: {
           beginAtZero: true,
           ticks: {
-            stepSize: 10,
+            stepSize: 20,
           },
           // max: 100,
         },

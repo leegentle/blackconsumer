@@ -33,7 +33,13 @@ const MONTH_LABEL = [
   25, 26, 27,
 ];
 const WEEK_LABEL = ["월", "화", "수", "목", "금", "토"];
-const TIME_LABEL = ["총상담", "중립", "분노1", "분노2", "분노3"];
+const TIME_LABEL = [
+  { title: "총상담", color: "#04E762", key: "all" },
+  { title: "중립", color: "#34D1BF", key: "normal" },
+  { title: "분노1", color: "#0496FF", key: "one" },
+  { title: "분노2", color: "#DE0D92", key: "two" },
+  { title: "분노3", color: "#6665DD", key: "three" },
+];
 
 const ONE = {
   daily: {
@@ -68,30 +74,70 @@ const ONE = {
       all: 1495,
       angryCustomer: 46,
       percent: 3.3,
+      hitmap: "",
+      total: {
+        all: 4559,
+        normal: 3910,
+        one: 374,
+        two: 225,
+        three: 40,
+      },
     },
     {
       level: 1,
       all: 304,
       angryCustomer: 10,
       percent: 2.5,
+      hitmap: "",
+      total: {
+        all: 972,
+        normal: 790,
+        one: 88,
+        two: 39,
+        three: 8,
+      },
     },
     {
       level: 1,
       all: 404,
       angryCustomer: 10,
       percent: 3.1,
+      hitmap: "",
+      total: {
+        all: 1232,
+        normal: 1106,
+        one: 73,
+        two: 42,
+        three: 8,
+      },
     },
     {
       level: 2,
       all: 487,
       angryCustomer: 15,
       percent: 3.7,
+      hitmap: "",
+      total: {
+        all: 1485,
+        normal: 1238,
+        one: 69,
+        two: 92,
+        three: 13,
+      },
     },
     {
       level: 1,
       all: 300,
       angryCustomer: 11,
       percent: 3.1,
+      hitmap: "",
+      total: {
+        all: 915,
+        normal: 783,
+        one: 71,
+        two: 50,
+        three: 9,
+      },
     },
   ],
 
@@ -123,13 +169,6 @@ const $angryCustomer = document.querySelector(".angryCustomer");
 const $percent = document.querySelector(".percent");
 const $date = document.querySelector(".date");
 
-const color = (stat) => {
-  if (stat <= 20) return "#04E762";
-  if (stat <= 40) return "#34D1BF";
-  if (stat <= 60) return "#0496FF";
-  if (stat <= 80) return "#6665DD";
-  return "#DE0D92";
-};
 const percent = (stat) => {
   const percent = (stat / 100) * 100;
   return percent > 100 ? 100 : percent;
@@ -207,6 +246,12 @@ myChart = new Chart(ctx, {
   },
 });
 
+// 일:시:분
+const minToDateString = (_min) => {
+  const day = _min / 1440;
+  const time = (_min % 1440) / 60;
+  const min = (_min % 1440) % 60;
+};
 // 그래프 하단 라벨
 const labelRender = () => {
   $color_list.innerHTML = `
@@ -222,9 +267,11 @@ const labelRender = () => {
 };
 // 누적 가로막대차트
 const render = () => {
+  const idx = type === "month" ? 0 : week;
   $time_list.innerHTML = `
-      ${TIME_DATA.map((item, idx) => {
-        const time = percent(item.time);
+      ${TIME_LABEL.map((item) => {
+        const summary = data.summary[idx].total;
+        const percent = (summary[item.key] / summary.all) * 100;
         return `
         <li>
           <div class="flex jb">
@@ -232,12 +279,12 @@ const render = () => {
               ${item.title}
             </p>
             <span>
-              ${time}분
+              ${minToDateString(summary[item.key])}분
             </span>
           </div>
-          <div class="gauge_wrap"><div style="width: ${time}%; background-color:${color(
-          time
-        )};" class="gauge"></div></div>
+          <div class="gauge_wrap"><div style="width: ${percent}%; background-color:${
+          item.color
+        };" class="gauge"></div></div>
         </li>
         `;
       }).join("")}

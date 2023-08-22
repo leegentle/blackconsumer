@@ -1,17 +1,22 @@
 import { exportWAV } from "./record.js";
-
-const TERM = 2000; // 1.5 sec
-const COUNT = 29; // 요청 회수
-
 // dom
 const $result = document.querySelector(".result");
-const $modal = document.querySelector(".modal");
 const $btn = document.querySelector("button");
 const $emotionImg = document.querySelector(".emotion_img");
+const $ester = document.querySelector(".ester");
+
+let voiceIdx = +localStorage.getItem("voiceIdx") || 1;
+const MAX = 5;
+$ester.innerHTML = voiceIdx;
+
+const TERM = 3000; // 텀
+
+let angryData = [
+  1, 2, 1, 3, 2, 1, 3, 2, 3, 1, 2, 3, 2, 1, 3, 2, 2, 3, 1, 2, 3, 1, 2, 3, 2, 1,
+];
 
 let data = [0]; // 음성 분석 결과
-const ALL = [3, 2, 3, 2, 3, 1, 2, 1, 1]; // 더미 음성분석 결과
-let num = 0;
+let idx = 0;
 let failedToGetUserMedia = false; // 마이크 접근실패 여부
 let recBuffers = [[], []]; // 음성 데이터
 let recLength = 0; // 음성데이터 길이
@@ -64,15 +69,27 @@ const init = (stream) => {
   };
   source.connect(node);
   node.connect(context.destination);
+  if (voiceIdx === 1) {
+    localStorage.setItem("voiceIdx", 2);
+  } else {
+    const fuck = voiceIdx + 1 > MAX ? 1 : voiceIdx + 1;
+    localStorage.setItem("voiceIdx", fuck);
+  }
+  api();
 };
 
-const api = async (formData) => {
+const api = async () => {
   const config = {
     headers: { "content-type": "multipart/form-data" },
   };
 
-  const data = await axios.post("http://127.0.0.1:5000/main", formData, config);
-  return data;
+  const data = await axios.post(
+    "http://127.0.0.1:5000/main",
+    { idx: voiceIdx },
+    config
+  );
+  console.log(data);
+  angryData = data;
 };
 
 const getEmotion = async () => {
@@ -98,11 +115,7 @@ const drawGraph = () => {
   myChart = new Chart(ctx, {
     type: "line",
     data: {
-      // labels: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30],
-      labels: [
-        2, 4, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40,
-        42, 44, 46, 48, 50, 52, 54, 56, 58, 60,
-      ],
+      labels: angryData.map((el, idx) => (idx + 1) * 3),
       datasets: [
         {
           // label: "판매량",
@@ -137,18 +150,16 @@ const drawGraph = () => {
     },
   });
   const interval = setInterval(async () => {
-    const emotion = await getEmotion();
-    const result = emotion.data.result_lavel;
-    data.push(result);
-    $emotionImg.src = `../img/emotion_${result}.jpg`;
+    // const dummy = await ran();
+    data.push(angryData[idx]);
+    $emotionImg.src = `../img/emotion_${angryData[idx++]}.jpg`;
 
     myChart.update();
-    if (data.length >= COUNT) {
-      //여기가 총 길ㅣㅏㅂ비당아
+    if (data.length >= angryData.length) {
       clearInterval(interval); // 인터벌 종료
       listening = false;
     }
-  }, TERM); //////////////////
+  }, TERM);
 };
 
 // 3초마다 데이터 추가 (30초 동안)
@@ -162,4 +173,10 @@ $btn.addEventListener("click", () => {
   $result.style.display = "block";
   listening = true;
   drawGraph();
+});
+$ester.addEventListener("click", () => {
+  localStorage.setItem("voiceIdx", 1);
+  voiceIdx = 1;
+  $ester.innerHTML = voiceIdx;
+  api();
 });

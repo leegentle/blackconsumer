@@ -97,6 +97,9 @@ button{
 #graph {
   margin-bottom: 50px;
 }
+#graph img{
+  cursor: pointer;
+}
 
 .color_list {
   margin-top: 16px;

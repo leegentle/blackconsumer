@@ -29,8 +29,30 @@ const TIME_DATA = [
 ];
 
 const MONTH_LABEL = [
-  1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 22, 23, 24,
-  25, 26, 27,
+  { date: 801, label: 1 },
+  { date: 802, label: 2 },
+  { date: 803, label: 3 },
+  { date: 804, label: 4 },
+  { date: 805, label: 5 },
+  { date: 806, label: 6 },
+  { date: 808, label: 8 },
+  { date: 809, label: 9 },
+  { date: 810, label: 10 },
+  { date: 811, label: 11 },
+  { date: 812, label: 12 },
+  { date: 813, label: 13 },
+  { date: 815, label: 15 },
+  { date: 816, label: 16 },
+  { date: 817, label: 17 },
+  { date: 818, label: 18 },
+  { date: 819, label: 19 },
+  { date: 820, label: 20 },
+  { date: 822, label: 22 },
+  { date: 823, label: 23 },
+  { date: 824, label: 24 },
+  { date: 825, label: 25 },
+  { date: 826, label: 26 },
+  { date: 827, label: 27 },
 ];
 const WEEK_LABEL = ["월", "화", "수", "목", "금", "토"];
 const TIME_LABEL = [
@@ -44,27 +66,134 @@ const TIME_LABEL = [
 const ONE = {
   daily: {
     all: [
-      69, 38, 37, 35, 99, 26, 68, 62, 62, 50, 111, 51, 117, 84, 80, 72, 82, 52,
-      63, 46, 44, 37, 75, 35,
+      { date: 801, count: 69 },
+      { date: 802, count: 38 },
+      { date: 803, count: 37 },
+      { date: 804, count: 35 },
+      { date: 805, count: 99 },
+      { date: 806, count: 26 },
+      { date: 808, count: 68 },
+      { date: 809, count: 62 },
+      { date: 810, count: 62 },
+      { date: 811, count: 50 },
+      { date: 812, count: 111 },
+      { date: 813, count: 51 },
+      { date: 815, count: 117 },
+      { date: 816, count: 84 },
+      { date: 817, count: 80 },
+      { date: 818, count: 72 },
+      { date: 819, count: 82 },
+      { date: 820, count: 52 },
+      { date: 822, count: 63 },
+      { date: 823, count: 46 },
+      { date: 824, count: 44 },
+      { date: 825, count: 37 },
+      { date: 826, count: 75 },
+      { date: 827, count: 35 },
     ],
     normal: [
-      43, 20, 15, 14, 36, 16, 43, 40, 41, 26, 43, 22, 46, 30, 28, 31, 37, 27,
-      26, 22, 23, 21, 36, 19,
+      { date: 801, count: 43 },
+      { date: 802, count: 20 },
+      { date: 803, count: 15 },
+      { date: 804, count: 14 },
+      { date: 805, count: 36 },
+      { date: 806, count: 16 },
+      { date: 808, count: 43 },
+      { date: 809, count: 40 },
+      { date: 810, count: 41 },
+      { date: 811, count: 26 },
+      { date: 812, count: 43 },
+      { date: 813, count: 22 },
+      { date: 815, count: 46 },
+      { date: 816, count: 30 },
+      { date: 817, count: 28 },
+      { date: 818, count: 31 },
+      { date: 819, count: 37 },
+      { date: 820, count: 27 },
+      { date: 822, count: 26 },
+      { date: 823, count: 22 },
+      { date: 824, count: 23 },
+      { date: 825, count: 21 },
+      { date: 826, count: 36 },
+      { date: 827, count: 19 },
     ],
     one: [
-      15, 12, 15, 15, 38, 9, 15, 13, 13, 14, 15, 17, 38, 30, 32, 24, 26, 16, 21,
-      13, 12, 8, 22, 8,
+      { date: 801, count: 15 },
+      { date: 802, count: 12 },
+      { date: 803, count: 15 },
+      { date: 804, count: 15 },
+      { date: 805, count: 38 },
+      { date: 806, count: 9 },
+      { date: 808, count: 15 },
+      { date: 809, count: 13 },
+      { date: 810, count: 13 },
+      { date: 811, count: 14 },
+      { date: 812, count: 15 },
+      { date: 813, count: 17 },
+      { date: 815, count: 38 },
+      { date: 816, count: 30 },
+      { date: 817, count: 32 },
+      { date: 818, count: 24 },
+      { date: 819, count: 26 },
+      { date: 820, count: 16 },
+      { date: 822, count: 21 },
+      { date: 823, count: 13 },
+      { date: 824, count: 12 },
+      { date: 825, count: 8 },
+      { date: 826, count: 22 },
+      { date: 827, count: 8 },
     ],
     two: [
-      8, 6, 6, 6, 19, 1, 8, 7, 7, 7, 8, 12, 26, 22, 18, 16, 16, 9, 14, 8, 9, 7,
-      13, 7,
+      { date: 801, count: 8 },
+      { date: 802, count: 6 },
+      { date: 803, count: 6 },
+      { date: 804, count: 6 },
+      { date: 805, count: 19 },
+      { date: 806, count: 1 },
+      { date: 808, count: 8 },
+      { date: 809, count: 7 },
+      { date: 810, count: 7 },
+      { date: 811, count: 7 },
+      { date: 812, count: 8 },
+      { date: 813, count: 12 },
+      { date: 815, count: 26 },
+      { date: 816, count: 22 },
+      { date: 817, count: 18 },
+      { date: 818, count: 16 },
+      { date: 819, count: 16 },
+      { date: 820, count: 9 },
+      { date: 822, count: 14 },
+      { date: 823, count: 8 },
+      { date: 824, count: 9 },
+      { date: 825, count: 7 },
+      { date: 826, count: 13 },
+      { date: 827, count: 7 },
     ],
     three: [
-      3, 0, 1, 0, 6, 0, 2, 2, 1, 3, 2, 0, 7, 2, 2, 1, 3, 0, 2, 3, 0, 1, 4, 1,
-    ],
-    percent: [
-      4.3, 0.0, 2.7, 0.0, 6.1, 0.0, 2.9, 3.2, 1.6, 6.0, 1.8, 0.0, 6.0, 2.4, 2.5,
-      1.4, 3.7, 0.0, 3.2, 6.5, 0.0, 2.7, 5.3, 2.9,
+      { date: 801, count: 3 },
+      { date: 802, count: 0 },
+      { date: 803, count: 1 },
+      { date: 804, count: 0 },
+      { date: 805, count: 6 },
+      { date: 806, count: 0 },
+      { date: 808, count: 2 },
+      { date: 809, count: 2 },
+      { date: 810, count: 1 },
+      { date: 811, count: 3 },
+      { date: 812, count: 2 },
+      { date: 813, count: 0 },
+      { date: 815, count: 7 },
+      { date: 816, count: 2 },
+      { date: 817, count: 2 },
+      { date: 818, count: 1 },
+      { date: 819, count: 3 },
+      { date: 820, count: 0 },
+      { date: 822, count: 2 },
+      { date: 823, count: 3 },
+      { date: 824, count: 0 },
+      { date: 825, count: 1 },
+      { date: 826, count: 4 },
+      { date: 827, count: 1 },
     ],
   },
 
@@ -148,9 +277,21 @@ const ONE = {
     four: "미해당",
   },
 };
+const END_WEEK = [801, 808, 815, 822, 829, 905, 912, 919, 926];
+const today = 901;
+// const today = +`${new Date().getMonth() + 1}${
+//   new Date().getDate() < 10 ? `0${new Date().getDate()}` : new Date().getDate()
+// }`;
+const nowMonth = Math.floor(today / 100);
+const nowWeek =
+  END_WEEK.findIndex((el) => el > today) % 4 === 0
+    ? 4
+    : END_WEEK.findIndex((el) => el > today) % 4;
+console.log(nowWeek);
 
 const idx = window.location.search.split("=")[1];
 let type = "month";
+let month = 8;
 let week = 1;
 const ran = Math.floor(Math.random() * 2) + 1;
 // const data = ran === 1 ? ONE : TWO;
@@ -179,11 +320,13 @@ const ctx = document.getElementById("myChart").getContext("2d");
 myChart = new Chart(ctx, {
   type: "line",
   data: {
-    labels: MONTH_LABEL,
+    labels: MONTH_LABEL.filter((el) => el.date < today).map((el) => el.label),
     datasets: [
       {
         label: "상담수",
-        data: data.daily.all,
+        data: data.daily.all
+          .filter((el) => el.date < today)
+          .map((el) => el.count),
         fill: false,
         borderColor: "#3577F6",
         pointBorderWidth: 3,
@@ -191,7 +334,9 @@ myChart = new Chart(ctx, {
       },
       {
         label: "분노1",
-        data: data.daily.one,
+        data: data.daily.one
+          .filter((el) => el.date < today)
+          .map((el) => el.count),
         fill: false,
         borderColor: "#9E9E9E",
         pointBorderWidth: 3,
@@ -199,7 +344,9 @@ myChart = new Chart(ctx, {
       },
       {
         label: "분노2",
-        data: data.daily.two,
+        data: data.daily.two
+          .filter((el) => el.date < today)
+          .map((el) => el.count),
         fill: false,
         borderColor: "#FFFB8C",
         pointBorderWidth: 3,
@@ -207,7 +354,9 @@ myChart = new Chart(ctx, {
       },
       {
         label: "분노3",
-        data: data.daily.three,
+        data: data.daily.three
+          .filter((el) => el.date < today)
+          .map((el) => el.count),
         fill: false,
         borderColor: "#89FFBF",
         pointBorderWidth: 3,
@@ -215,7 +364,9 @@ myChart = new Chart(ctx, {
       },
       {
         label: "중립",
-        data: data.daily.normal,
+        data: data.daily.normal
+          .filter((el) => el.date < today)
+          .map((el) => el.count),
         fill: false,
         borderColor: "#D36FEF",
         pointBorderWidth: 3,
@@ -300,14 +451,51 @@ const buttonToggle = () => {
   $momth.style.backgroundColor = "#DFDFDF";
   $week.style.backgroundColor = "#3577F6";
 };
+// 화살표 색상 토글
+const arrowToggle = () => {
+  const change = {
+    start: () => {
+      $left_arrow.src = "../img/leftArrowOff.jpg";
+    },
+    noStart: () => {
+      $left_arrow.src = "../img/leftArrow.jpg";
+    },
+    end: () => {
+      $right_arrow.src = "../img/rightArrowOff.jpg";
+    },
+    noEnd: () => {
+      $right_arrow.src = "../img/rightArrow.jpg";
+    },
+  };
+  if (
+    (type === "month" && month === 8) ||
+    (type === "week" && month === 8 && week === 1)
+  ) {
+    change.start();
+  } else {
+    change.noStart();
+  }
+  console.log(type === "month" && month === nowMonth);
+  console.log(type === "week" && month === nowMonth && week === 4);
+
+  if (
+    (type === "month" && month === nowMonth) ||
+    (type === "week" && month === nowMonth && week === 4)
+  ) {
+    change.end();
+  } else {
+    change.noEnd();
+  }
+};
 // 저번,다음주
 const onChangeWeek = (num) => {
   if (type === "month") return;
-  if (num === 1 && week === 4) return;
+  if (num === 1 && month === nowMonth && week === 4) return;
   if (num === -1 && week === 1) return;
   week = week + num;
   $date.innerHTML = `8월 ${week}주차`;
   changeChartData();
+  arrowToggle();
 };
 // 요약
 const changeSummary = () => {
@@ -323,13 +511,31 @@ const changeSummary = () => {
 const changeChartData = () => {
   const begin = type === "month" ? undefined : (week - 1) * 6;
   const end = type === "month" ? undefined : week * 6;
-  const all = data.daily.all.slice(begin, end);
-  const normal = data.daily.normal.slice(begin, end);
-  const one = data.daily.one.slice(begin, end);
-  const two = data.daily.two.slice(begin, end);
-  const three = data.daily.three.slice(begin, end);
+  const all = data.daily.all
+    .slice(begin, end)
+    .filter((el) => el.date < today)
+    .map((el) => el.count);
+  const normal = data.daily.normal
+    .slice(begin, end)
+    .filter((el) => el.date < today)
+    .map((el) => el.count);
+  const one = data.daily.one
+    .slice(begin, end)
+    .filter((el) => el.date < today)
+    .map((el) => el.count);
+  const two = data.daily.two
+    .slice(begin, end)
+    .filter((el) => el.date < today)
+    .map((el) => el.count);
+  const three = data.daily.three
+    .slice(begin, end)
+    .filter((el) => el.date < today)
+    .map((el) => el.count);
 
-  myChart.data.labels = type === "month" ? MONTH_LABEL : WEEK_LABEL;
+  myChart.data.labels =
+    type === "month"
+      ? MONTH_LABEL.filter((el) => el.date < today).map((el) => el.label)
+      : WEEK_LABEL;
   myChart.data.datasets[0].data = all;
   myChart.data.datasets[1].data = normal;
   myChart.data.datasets[2].data = one;
@@ -345,6 +551,7 @@ const onClickButton = (_type) => {
   type = _type;
   buttonToggle();
   changeChartData();
+  arrowToggle();
 };
 
 $momth.addEventListener("click", () => onClickButton("month"));
@@ -356,6 +563,7 @@ const init = () => {
   $idx.innerHTML = idx;
   render();
   labelRender();
+  arrowToggle();
 };
 
 init();

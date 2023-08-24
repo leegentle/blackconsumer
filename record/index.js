@@ -75,38 +75,6 @@ const init = (stream) => {
     const fuck = voiceIdx + 1 > MAX ? 1 : voiceIdx + 1;
     localStorage.setItem("voiceIdx", fuck);
   }
-  api();
-};
-
-const api = async () => {
-  const config = {
-    headers: { "content-type": "multipart/form-data" },
-  };
-
-  const data = await axios.post(
-    "http://127.0.0.1:8000/main",
-    { idx: voiceIdx },
-    config
-  );
-  console.log(data);
-  angryData = data;
-};
-
-const getEmotion = async () => {
-  const wav = exportWAV(recBuffers, recLength, numChannels);
-  recBuffers = [[], []];
-  recLength = 0;
-  const formData = new FormData();
-  formData.append("file", wav);
-  const data = await api(formData);
-  return data;
-};
-
-const ran = () => {
-  return new Promise((resolve, reject) => {
-    const num = Math.round(Math.random() * (3 - 1) + 1);
-    resolve(num);
-  });
 };
 
 // 그래프 생성
@@ -178,5 +146,4 @@ $ester.addEventListener("click", () => {
   localStorage.setItem("voiceIdx", 1);
   voiceIdx = 1;
   $ester.innerHTML = voiceIdx;
-  api();
 });

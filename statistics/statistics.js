@@ -485,12 +485,7 @@ const TWO = {
     },
   ],
 
-  action: {
-    one: "O",
-    two: "O",
-    three: "X",
-    four: "미해당",
-  },
+  action: ["O", "O", "X", "미해당"],
 };
 const ONE = {
   daily: {
@@ -890,12 +885,7 @@ const ONE = {
     },
   ],
 
-  action: {
-    one: "O",
-    two: "X",
-    three: "미해당",
-    four: "미해당",
-  },
+  action: ["O", "X", "미해당", "미해당"],
 };
 const END_WEEK = [801, 808, 815, 822, 829, 905, 912, 919, 926];
 // const today = 925;
@@ -929,6 +919,7 @@ const $all = document.querySelector(".all");
 const $angryCustomer = document.querySelector(".angryCustomer");
 const $percent = document.querySelector(".percent");
 const $date = document.querySelector(".date");
+const $조치 = document.getElementsByClassName("조치");
 
 const percent = (stat) => {
   const percent = (stat / 100) * 100;
@@ -1019,6 +1010,13 @@ myChart = new Chart(ctx, {
     },
   },
 });
+
+// 조치사항
+const 조치함수 = () => {
+  for (let i = 0; i < data.action.length; i++) {
+    $조치[i].innerHTML = data.action[i];
+  }
+};
 
 // 일:시:분
 const minToDateString = (_min) => {
@@ -1196,6 +1194,7 @@ const changeChartData = () => {
   myChart.update();
   changeSummary();
   render();
+  조치함수();
 };
 
 // 월/주별 버튼 클릭
@@ -1215,6 +1214,7 @@ $right_arrow.addEventListener("click", () => onChangeWeek(1));
 const init = () => {
   $idx.innerHTML = idx;
   render();
+  조치함수();
   changeSummary();
   labelRender();
   arrowToggle();

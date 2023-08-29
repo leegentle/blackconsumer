@@ -890,13 +890,13 @@ const ONE = {
   action: ["O", "X", "미해당", "미해당"],
 };
 const END_WEEK = [801, 808, 815, 822, 829, 905, 912, 919, 926];
-// const today = 925;
+// const today = 902;
 const today = +`${new Date().getMonth() + 1}${
   new Date().getDate() < 10 ? `0${new Date().getDate()}` : new Date().getDate()
 }`;
 const nowMonth = Math.floor(today / 100);
 const nowWeek =
-  END_WEEK.findIndex((el) => el > today) % 4 === 0
+  END_WEEK.findIndex((el) => el >= today) % 4 === 0
     ? 4
     : END_WEEK.findIndex((el) => el > today) % 4;
 const idx = window.location.search.split("=")[1];
@@ -904,7 +904,6 @@ let type = "month";
 let month = 8;
 let week = 1;
 const ran = Math.floor(Math.random() * 2) + 1;
-console.log(ran);
 const data = ran === 1 ? ONE : TWO;
 // const data = ONE;
 
@@ -922,6 +921,7 @@ const $angryCustomer = document.querySelector(".angryCustomer");
 const $percent = document.querySelector(".percent");
 const $date = document.querySelector(".date");
 const $조치 = document.getElementsByClassName("조치");
+const $hit_map = document.querySelector(".hit_map");
 
 const percent = (stat) => {
   const percent = (stat / 100) * 100;
@@ -1152,31 +1152,33 @@ const changeSummary = () => {
 };
 // 차트 데이터 변경
 const changeChartData = () => {
-  const begin = type === "month" ? undefined : (week - 1) * 6;
-  const end = type === "month" ? undefined : week * 6;
-
+  const begin =
+    type === "month" ? undefined : (week - 1) * 6 + (month === 9 ? 24 : 0);
+  const end = type === "month" ? undefined : week * 6 + (month === 9 ? 32 : 0);
+  console.log(begin);
+  console.log(end);
   const all = data.daily.all
-    .filter((el) => Math.floor(el.date / 100) === month)
+    // .filter((el) => Math.floor(el.date / 100) === month)
     .slice(begin, end)
     .filter((el) => el.date <= today)
     .map((el) => el.count);
   const normal = data.daily.normal
-    .filter((el) => Math.floor(el.date / 100) === month)
+    // .filter((el) => Math.floor(el.date / 100) === month)
     .slice(begin, end)
     .filter((el) => el.date <= today)
     .map((el) => el.count);
   const one = data.daily.one
-    .filter((el) => Math.floor(el.date / 100) === month)
+    // .filter((el) => Math.floor(el.date / 100) === month)
     .slice(begin, end)
     .filter((el) => el.date <= today)
     .map((el) => el.count);
   const two = data.daily.two
-    .filter((el) => Math.floor(el.date / 100) === month)
+    // .filter((el) => Math.floor(el.date / 100) === month)
     .slice(begin, end)
     .filter((el) => el.date <= today)
     .map((el) => el.count);
   const three = data.daily.three
-    .filter((el) => Math.floor(el.date / 100) === month)
+    // .filter((el) => Math.floor(el.date / 100) === month)
     .slice(begin, end)
     .filter((el) => el.date <= today)
     .map((el) => el.count);
@@ -1197,6 +1199,9 @@ const changeChartData = () => {
   changeSummary();
   render();
   조치함수();
+  $hit_map.src = `../img/hitmap/${data.type}-${month}-${
+    type === "month" ? 0 : week
+  }.png`;
 };
 
 // 월/주별 버튼 클릭

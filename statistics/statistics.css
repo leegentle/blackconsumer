@@ -21,6 +21,7 @@ button{
 .wrap {
   max-width: 1024px;
   margin: 0 auto;
+margin-bottom: 20px;
 }
 
 .flex {
@@ -114,7 +115,6 @@ button{
   margin-right: 8px;
 }
 
-
 .title {
   display: inline-block;
   padding: 10px 24px;
@@ -137,6 +137,10 @@ button{
   font-size: 24px;
 }
 
+#hitMap img{
+width: 480px;
+}
+
 #timeSection{
 	flex: 1;
 	margin-left: 64px;
@@ -153,12 +157,12 @@ button{
 
 .time_list{
   margin-top: 8px;
-  padding: 23px 48px;
+  padding: 12px 40px;
   box-shadow: 0 25px 36px rgba(0, 0, 0, 0.1) ;
   border-radius: 20px;
 }
 .time_list li{
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 .time_list span{
   color:#3577F6

@@ -88,6 +88,7 @@ const TIME_LABEL = [
 ];
 
 const TWO = {
+  type: 2,
   daily: {
     all: [
       { date: 801, count: 80 },
@@ -488,6 +489,7 @@ const TWO = {
   action: ["O", "O", "X", "미해당"],
 };
 const ONE = {
+  type: 1,
   daily: {
     all: [
       { date: 801, count: 69 },

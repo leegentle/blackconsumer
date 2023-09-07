@@ -32,6 +32,9 @@ margin-bottom: 20px;
 .jb {
   justify-content: space-between;
 }
+.jc {
+  justify-content: center;
+}
 
 .ais {
 	align-items: flex-start;
@@ -170,4 +173,15 @@ width: 480px;
 
 .gauge_wrap{
   margin-top: 8px;
+}
+
+.to_home{
+  margin: 64px 0 30px;
+  .title{
+    width: 540px;
+    height: 84px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 16px;
+  }
 }

@@ -113,28 +113,28 @@ let constraints = {
 let listening = false; // 녹음중
 let myChart;
 
-if (navigator.getUserMedia) {
-  navigator.getUserMedia(
-    constraints,
-    (stream) => {
-      init(stream);
-    },
-    (err) => {
-      alert("마이크가 인식되지 않습니다");
-      failedToGetUserMedia = true;
-    }
-  );
-} else if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices
-    .getUserMedia(constraints)
-    .then((stream) => {
-      init(stream);
-    })
-    .catch((err) => {
-      alert("마이크가 인식되지 않습니다");
-      failedToGetUserMedia = true;
-    });
-} else failedToGetUserMedia = true;
+// if (navigator.getUserMedia) {
+//   navigator.getUserMedia(
+//     constraints,
+//     (stream) => {
+//       init(stream);
+//     },
+//     (err) => {
+//       alert("마이크가 인식되지 않습니다");
+//       failedToGetUserMedia = true;
+//     }
+//   );
+// } else if (navigator.mediaDevices.getUserMedia) {
+//   navigator.mediaDevices
+//     .getUserMedia(constraints)
+//     .then((stream) => {
+//       init(stream);
+//     })
+//     .catch((err) => {
+//       alert("마이크가 인식되지 않습니다");
+//       failedToGetUserMedia = true;
+//     });
+// } else failedToGetUserMedia = true;
 
 const init = (stream) => {
   let audioContext = new AudioContext();
@@ -142,24 +142,18 @@ const init = (stream) => {
   let context = source.context;
   let node = (
     context.createScriptProcessor || context.createJavaScriptNode
-  ).call(context, 4096, numChannels, numChannels);
-  node.onaudioprocess = (e) => {
-    if (!listening) return;
-
-    for (var i = 0; i < numChannels; i++) {
-      recBuffers[i].push([...e.inputBuffer.getChannelData(i)]);
-    }
-
-    recLength += recBuffers[0][0].length;
-  };
-  source.connect(node);
-  node.connect(context.destination);
-  if (voiceIdx === 1) {
-    localStorage.setItem("voiceIdx", 2);
-  } else {
-    const fuck = voiceIdx + 1 > MAX ? 1 : voiceIdx + 1;
-    localStorage.setItem("voiceIdx", fuck);
-  }
+    ).call(context, 4096, numChannels, numChannels);
+    node.onaudioprocess = (e) => {
+      if (!listening) return;
+      
+      for (var i = 0; i < numChannels; i++) {
+        recBuffers[i].push([...e.inputBuffer.getChannelData(i)]);
+      }
+      
+      recLength += recBuffers[0][0].length;
+    };
+    source.connect(node);
+    node.connect(context.destination);
 };
 
 // 그래프 생성
@@ -206,7 +200,7 @@ const drawGraph = () => {
     // const dummy = await ran();
     data.push(voiceData[idx]);
     $emotionImg.src = `../img/emotion_${voiceData[idx++]}.jpg`;
-
+    
     myChart.update();
     if (data.length >= voiceData.length) {
       clearInterval(interval); // 인터벌 종료
@@ -216,6 +210,18 @@ const drawGraph = () => {
 };
 
 // 3초마다 데이터 추가 (30초 동안)
+
+const count = () =>{
+
+  if (voiceIdx === 1) {
+    localStorage.setItem("voiceIdx", 2);
+  } else {
+    const lee = voiceIdx + 1 > MAX ? 1 : voiceIdx + 1;
+    localStorage.setItem("voiceIdx", lee);
+  }
+}
+
+count();
 
 // 이벤트 리스너
 $btn.addEventListener("click", () => {

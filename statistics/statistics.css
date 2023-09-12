@@ -175,11 +175,21 @@ width: 480px;
   margin-top: 8px;
 }
 
-.to_home{
+/* .to_home{
   margin: 64px 0 30px;
   .title{
-    width: 540px;
-    height: 84px;
+    width: 160px;
+    height: 54px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 16px;
+  }
+} */
+.to_home{
+  margin: 9px 0 10px;
+  .title{
+    width: 160px;
+    height: 45px;
     font-size: 24px;
     font-weight: bold;
     border-radius: 16px;
